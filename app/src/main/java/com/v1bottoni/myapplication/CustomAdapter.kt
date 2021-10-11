@@ -21,14 +21,22 @@ class CustomAdapter(val list: List<Boomer>, val context: Context, var onItemClic
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        TODO("Not yet implemented")
+        val view =
+            layoutInflater.from(parent.context).inflate(R.layout.layout_item_card, parent,false)
+    return CustomViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val recipe = list[position]
+        holder.imageView.setImageResource(recipe.imageUrl)
+        holder.testView.text = recipe.title
+        holder.desc.text = recipe.description
+        holder.testView.setOnClickListener {
+            onItemClick.invoke(recipe.id)
+        }
     }
 
-    override fun getItemCount(): Int {
+    override fun getItemCount() = list.size{
         TODO("Not yet implemented")
     }
 
