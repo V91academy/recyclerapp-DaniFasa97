@@ -11,7 +11,8 @@ class CustomAdapter(val list: List<Boomer>, val context: Context, var onItemClic
     RecyclerView.Adapter<CustomAdapter.CustomViewHolder>() {
 
     inner class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-      var imageView: ImageView
+        val desc: Any
+        var imageView: ImageView
       var testView: TextView
 
         init {
